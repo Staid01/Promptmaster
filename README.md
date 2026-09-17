@@ -82,10 +82,10 @@ I want to ask Claude Code to build a todo app with React and Supabase
 Prompt Master runs a structured pipeline on every request:
 
 1. **Detects the target tool** — figures out which AI system the prompt is for and routes silently to the right approach
-2. **Extracts 9 dimensions of intent** — task, input, output, constraints, context, audience, memory, success criteria, examples
+2. **Extracts 9 dimensions of intent** — task, target tool, output format, constraints, input, context, audience, success criteria, examples
 3. **Asks targeted clarifying questions** — max 3 questions if critical info is missing, never more
 4. **Routes to the right framework** — picks and applies the correct prompt architecture automatically, never shown to the user
-5. **Applies safe techniques only** — role assignment, few-shot examples, XML structure, grounding anchors, memory block as needed
+5. **Applies safe techniques only** — role assignment, few-shot examples, grounding anchors, auditable reasoning as needed
 6. **Checks model recency** — verifies exact models and controls against official provider docs when the request depends on "latest"
 7. **Runs a token efficiency audit** — strips every word that doesn't change the output
 8. **Delivers the prompt** — one clean copyable block with a one-line strategy note
@@ -107,7 +107,7 @@ shallow depth of field --ar 16:9 --v 6 --style raw
 
 negative: blurry, low quality, watermark, cartoon, anime, extra limbs
 ```
-**🎯 Target:** Midjourney · **⚡ Framework:** Visual Descriptor · **💰 Tokens:** Light (~60) · **💡 Strategy:** Comma-separated descriptors over prose, lighting and mood anchored early, aspect ratio and version locked, negative prompt prevents style drift.
+**🎯 Target:** Midjourney · **💡 Strategy:** Comma-separated descriptors over prose, lighting and mood anchored early, aspect ratio and version locked, negative prompt prevents style drift.
 
 ---
 ## Full Example #2: Generating Prompts for Coding
@@ -188,7 +188,7 @@ Done When:
 - Hover states work on all interactive elements
 - Opens in browser with zero console errors
 ```
-**🎯 Target:** Claude Code · **💰 Tokens:** Medium (~380) · **💡 Strategy:** Every vague Notion aesthetic cue translated into exact hex values and pixel specs — Claude Code cannot guess wrong. Animations defined with exact timing, method, and trigger so there is no interpretation needed.
+**🎯 Target:** Claude Code · **💡 Strategy:** Every vague Notion aesthetic cue translated into exact hex values and pixel specs — Claude Code cannot guess wrong. Animations defined with exact timing, method, and trigger so there is no interpretation needed.
 
 ---
 
@@ -270,7 +270,7 @@ Prompt Master picks the right architecture for every task automatically and rout
 
 ---
 
-## 🛡️ 5 Safe Techniques, Applied When Needed
+## 🛡️ 4 Safe Techniques, Applied When Needed
 
 Prompt Master only uses techniques with reliable, bounded effects. Methods known to produce hallucinations or unpredictable output (Tree of Thought, Graph of Thought, Universal Self-Consistency, prompt chaining) are explicitly excluded.
 
@@ -278,7 +278,6 @@ Prompt Master only uses techniques with reliable, bounded effects. Methods known
 |-----------|-------------|
 | **Role Assignment** | Assigns a specific expert identity to calibrate depth and vocabulary |
 | **Few-Shot Examples** | Adds 2-5 examples when format consistency matters more than instructions |
-| **XML Structural Tags** | Wraps sections in XML for Claude-based tools that parse it reliably |
 | **Grounding Anchors** | Adds anti-hallucination rules for factual and citation tasks |
 | **Auditable Reasoning** | Requests conclusions, assumptions, evidence, and verification without hidden reasoning |
 
